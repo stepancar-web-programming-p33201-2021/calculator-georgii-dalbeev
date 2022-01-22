@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.calc {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 20px;
+    height: 1000px;
+    width: 1000px;
+    left: 25vw;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.header {
+    grid-column: 2/-2;
+    grid-row: 1;
+    justify-self: center;
+}
+
+.field {
+    grid-column: 2/-2;
+    grid-row: 2/4;
+    background: antiquewhite;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.field input {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    font-size: 80px;
+}
+
+.buttons {
+    padding: 50px;
+    gap: 50px;
+    grid-column: 2/-2;
+    grid-row: 4/10;
+    background: cornsilk;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(30px, auto);
+}
+
+.button {
+    font-size: 30px;
+}
+
+.rights {
+    justify-self: center;
+    align-self: center;
+    font-weight: 900;
+    font-family: "Bahnschrift", serif;
+    font-size: 30px;
+}
