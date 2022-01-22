@@ -9,7 +9,6 @@ function Calc() {
 
   function handleClick(event) {
     const eventValue = event.target.name;
-    console.log(eventValue);
     if (eventValue.match(/[0-9]/)) {
       setValue(value + eventValue);
     } else if (eventValue === "clear") {
@@ -35,8 +34,8 @@ function Calc() {
         setLvalue("");
       }
     } else {
-      if(!value.match(/^.*\.$/) && value !== "") {
-        if (op === "") {
+      if(!value.match(/^.*\.$/)) {
+        if (op === "" && value !== "") {
           setLvalue(value);
           setValue("");
         }
