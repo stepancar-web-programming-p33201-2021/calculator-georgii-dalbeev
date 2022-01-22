@@ -1,6 +1,6 @@
 import "./index.css";
 import { buttons } from "./services";
-import { isValidElement, useState } from "react";
+import { useState } from "react";
 
 function Calc() {
   const [value, setValue] = useState("");
