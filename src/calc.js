@@ -73,11 +73,25 @@ function Calc() {
     }
   }
 
+  function handleKeyboard(event) {
+    const key = event.key;
+    if (key === "Escape") {
+      handleValue("clear");
+    } else if (key === "Enter") {
+      handleValue("=");
+    }
+  }
+
   return (
     <div className="calc">
       <h1 className="header">Calculator</h1>
       <div className="field">
-        <input type="text" value={value} onChange={onChangeInput} />
+        <input
+          type="text"
+          value={value}
+          onChange={onChangeInput}
+          onKeyUp={handleKeyboard}
+        />
       </div>
       <div className="buttons">
         {buttons.map((button) => (
