@@ -8,7 +8,11 @@ function Calc() {
   const [op, setOp] = useState("");
 
   function handleClick(event) {
-    const eventValue = event.target.name;
+    handleValue(event.target.name);
+  }
+
+  function handleValue(eventValue) {
+    console.log(eventValue);
     if (eventValue.match(/[0-9]/)) {
       setValue(value + eventValue);
     } else if (eventValue === "clear") {
@@ -22,19 +26,31 @@ function Calc() {
         setValue(value + eventValue);
       }
     } else if (eventValue === "=") {
-      if(!value.match(/^.*\.$/) && value !== "") {
-        switch (op){
-          case "+": setValue((parseFloat(lvalue) + parseFloat(value)).toString());break;
-          case "-": setValue((parseFloat(lvalue) - parseFloat(value)).toString());break;
-          case "*": setValue((parseFloat(lvalue) * parseFloat(value)).toString());break;
-          case "%": setValue((parseFloat(lvalue) % parseFloat(value)).toString());break;
-          case "^": setValue((Math.pow(parseFloat(lvalue), parseFloat(value))).toString());break;
+      if (!value.match(/^.*\.$/) && value !== "") {
+        switch (op) {
+          case "+":
+            setValue((parseFloat(lvalue) + parseFloat(value)).toString());
+            break;
+          case "-":
+            setValue((parseFloat(lvalue) - parseFloat(value)).toString());
+            break;
+          case "*":
+            setValue((parseFloat(lvalue) * parseFloat(value)).toString());
+            break;
+          case "%":
+            setValue((parseFloat(lvalue) % parseFloat(value)).toString());
+            break;
+          case "^":
+            setValue(
+              Math.pow(parseFloat(lvalue), parseFloat(value)).toString()
+            );
+            break;
         }
         setOp("");
         setLvalue("");
       }
     } else {
-      if(!value.match(/^.*\.$/)) {
+      if (!value.match(/^.*\.$/)) {
         if (op === "" && value !== "") {
           setLvalue(value);
           setValue("");
@@ -44,7 +60,18 @@ function Calc() {
     }
   }
 
-  function onChangeInput(event) {}
+  function onChangeInput(event) {
+    const eventValue = event.target.value;
+    if (
+      eventValue.match(/^[0-9]*$/) ||
+      eventValue.match(/^[0-9]*\.[0-9]*$/) ||
+      eventValue.match(/^[0-9]*\.$/)
+    ) {
+      setValue(eventValue);
+    } else if (eventValue.slice(-1).match(/[*\-%^+=]/)) {
+      handleValue(eventValue.slice(-1));
+    }
+  }
 
   return (
     <div className="calc">
