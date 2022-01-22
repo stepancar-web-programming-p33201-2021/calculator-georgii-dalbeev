@@ -13,8 +13,8 @@ body {
     grid-template-columns: repeat(21, 1fr);
     grid-template-rows: repeat(10, 1fr);
     gap: 20px;
-    height: 1000px;
-    width: 1000px;
+    height: 800px;
+    width: 800px;
     left: 25vw;
     align-items: stretch;
     justify-items: stretch;
@@ -43,7 +43,7 @@ body {
 
 .buttons {
     padding: 50px;
-    gap: 50px;
+    gap: 20px;
     grid-column: 2/-3;
     grid-row: 4/10;
     background: cornsilk;
